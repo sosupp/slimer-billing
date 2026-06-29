@@ -29,6 +29,7 @@ class SlimerBillingInstall extends Command
 
         $this->publishAssets();
         $this->updateEnv();
+        
         // $this->call('slimer:landlord-install');
 
         $this->updateEnv([
