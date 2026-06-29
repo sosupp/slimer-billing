@@ -35,7 +35,6 @@ return new class extends Migration
             $table->softDeletes();
             
             $table->index('billing_id');
-            $table->index(['itemable_type', 'itemable_id']);
         });
     }
 

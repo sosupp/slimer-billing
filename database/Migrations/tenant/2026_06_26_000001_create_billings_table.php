@@ -62,7 +62,6 @@ return new class extends Migration
             $table->timestamps();
             
             // Indexes
-            $table->index(['billable_type', 'billable_id']);
             $table->index('billing_number');
             $table->index('status');
             $table->index('billing_date');

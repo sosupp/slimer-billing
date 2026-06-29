@@ -4,6 +4,7 @@ namespace Sosupp\SlimerBilling;
 
 use Illuminate\Support\ServiceProvider;
 use Override;
+use Sosupp\SlimerBilling\Console\SlimerBillingInstall;
 use Sosupp\SlimerBilling\Services\BillingService;
 
 class SlimerBillingServiceProvider extends ServiceProvider
@@ -28,7 +29,7 @@ class SlimerBillingServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-        
+
         $this->loadViewsFrom(__DIR__ . '/Views', 'slimerbilling');
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'slimerbilling');
 
@@ -60,13 +61,13 @@ class SlimerBillingServiceProvider extends ServiceProvider
         // Register commands
         if ($this->app->runningInConsole()) {
             $this->commands([
-                InstallCommand::class,
-                GenerateBillingNumberCommand::class,
+                SlimerBillingInstall::class,
+                // GenerateBillingNumberCommand::class,
             ]);
         }
 
         // Register middleware if needed
-        $router = $this->app->make(Router::class);
+        // $router = $this->app->make(Router::class);
         // $router->aliasMiddleware('billing.auth', \YourVendor\SchoolFeeBilling\Middleware\BillingAuth::class);
     }
 
